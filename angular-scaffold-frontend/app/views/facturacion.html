@@ -1,0 +1,112 @@
+<div ng-controller="facturacionController" id="body_todo">
+  <div id="body_facturacion" ng-class="viewBackground">
+    <div class="container container-table" ng-init="loadInventario()">
+      
+      <div id="divDARIOV" class="vertical-center-row-DARIOV fadeIn animated">
+        <div class="row">
+          <div class="col-xs-offset-1 col-xs-4">
+          </div>
+
+            <!-- Parte Search -->
+            <div class="col-xs-offset-3 col-xs-4">
+              <div id="buscador">
+                <div id="icon_search">
+                  <p> <i class="glyphicon glyphicon-remove-circle" style="vertical-align:middle" ng-click="clearSearch()"></i> </p>
+                </div>
+                <div class="input-group" id="input_search" >
+                  <input type="text" id="input_search_text" class="form-control" aria-describedby="basic-addon1" placeholder="Search" ng-model="search">
+                </div>
+              </div>
+            </div>
+            <!-- Parte Search -->
+
+          </div>
+
+        <div class="row">
+
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <table class="table table-bordered tablaDario" id="tablaProductos">
+              <thead>
+                <tr>
+                  <th class="TableCenter"></th>
+                  <th class="TableCenterHeader" ng-click="sortType = 'ID'; sortReverse = !sortReverse">ID</th>
+                  <th class="TableCenterHeader" ng-click="sortType = 'Descripcion'; sortReverse = !sortReverse">Descripcion</th>
+                  <th class="TableCenterHeader" ng-click="sortType = 'Cantidad'; sortReverse = !sortReverse">Cantidad</th>
+                  <th class="TableCenterHeader" ng-click="sortType = 'Precio'; sortReverse = !sortReverse">Precio</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="producto in inventarioArreglo | orderBy:sortType:sortReverse | filter:search track by $index">
+                  <td class="TableCenter"> <input type="checkbox" aria-label="..." ng-click="actualizarFactura();toggleChecked()" id="check" name="check1"> </td>
+                  <td class="TableCenter">{{producto.ID}}</td>
+                  <td class="TableCenter">{{producto.Descripcion}}</td>
+                  <td class="TableCenter">{{producto.Cantidad}}</td>
+                  <td class="TableCenter price" name="price1">{{producto.Precio}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-offset-1 col-xs-3">
+            <button type="button" class="btn-group btn-group-sm" ng-click="deseleccionarTodas()">Deseleccionar Todas</button>
+          </div>
+          <div class="col-xs-offset-5 col-xs-3" id="letraCanTot">
+            <p>Cantidad Total: <span id="NUM">0</span> </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <table class="table tablaDario">
+              <tr>
+                <td>Subtotal</td>
+                <td class="table-center">L.  <span id="TD_SUB"></span> </td>
+              </tr>
+              <tr>
+                <td>Impuesto</td>
+                <td class="table-center">L.  <span id="TD_IMP"></span> </td>
+              </tr>
+              <tr>
+                <td>Total</td>
+                <td class="table-center">L.  <span id="TD_TOT"></span> </td>
+              </tr>
+              <tr>
+                <td>Zona de Venta</td>
+                <td class="table-center">
+                  <div class="btn-group">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" id="Zona">
+                      Seleccione una Zona
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                      <li><a href="">Tegucigalpa </a></li>
+                      <li><a href="">Danli </a></li>
+                      <li><a href="">Olancho </a></li>
+                      <li><a href="">Norte </a></li>
+                      <li><a href="">Sur </a></li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-offset-5 col-xs-7">
+            <div class="btn-group">
+              <button type="button" class="btn btn-success" ng-click="gocompras()">Facturar</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

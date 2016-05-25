@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Angular JS Scaffold app.</title>
+    <!-- inject:css -->
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/mdb.css">
+    <!-- endinject -->
+
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/bootstrap-css/css/bootstrap.min.css">
+    <!-- endinject -->
+  </head>
+  <body ng-app="AngularScaffold">
+
+    <!--Navigation-->
+    <nav class="navbar blue navbar-fixed-top z-depth-1" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand waves-effect waves-light" href="#">Coca Cola</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#" class="waves-effect waves-light">Link</a></li>
+                    <li><a href="#" class="waves-effect waves-light">Link</a></li>
+                </ul>
+            </div>
+    </nav>
+    <!--/.Navigation-->
+
+      <div ui-view></div>
+  </body>
+
+  <!-- bower:js -->
+
+  <script src="/jquery/dist/jquery.js"></script>
+
+  <script src="/angular/angular.js"></script>
+
+  <script src="/angular-ui-router/release/angular-ui-router.js"></script>
+
+  <script src="/bootstrap-css/js/bootstrap.min.js"></script>
+
+  <script src="/ngstorage/ngStorage.js"></script>
+
+  <script src="/bootstrap/dist/js/bootstrap.js"></script>
+
+  <!-- endinject -->
+
+  <script src="app.js"></script>
+
+  <!-- inject:js -->
+  <script src="scripts/controllers/HomeController.js"></script>
+  <script src="scripts/controllers/navbarController.js"></script>
+  <script src="scripts/services/HomeService.js"></script>
+  <script src="scripts/services/authService.js"></script>
+  <!-- endinject -->
+</html>
